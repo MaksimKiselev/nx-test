@@ -22,8 +22,10 @@ jobs:
         npx nx affected --target=lint --parallel=3
         npx nx affected --target=test --parallel=3 --ci --code-coverage
         npx nx affected --target=build --parallel=3
+#      artifacts-path: "./packages"
+#      artifacts-name: ""
       final-commands: |
-        ls -l ./*
+        ls -l ./packages/.*
 
   agents:
     name: Nx Cloud - Agents

@@ -5,6 +5,8 @@ on:
     branches:
       - main
   pull_request:
+  workflow_dispatch:
+
 
 jobs:
   main:
@@ -27,3 +29,5 @@ jobs:
     uses: nrwl/ci/.github/workflows/nx-cloud-agents.yml@v0.13.0
     with:
       number-of-agents: 3
+
+

@@ -15,6 +15,7 @@
         "main": "packages/my-nest-app/src/main.ts",
         "tsConfig": "packages/my-nest-app/tsconfig.app.json",
         "assets": ["packages/my-nest-app/src/assets"],
+        "generatePackageJson": true,
         "isolatedConfig": true,
         "webpackConfig": "packages/my-nest-app/webpack.config.js"
       },

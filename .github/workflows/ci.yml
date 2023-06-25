@@ -25,7 +25,7 @@ jobs:
 #      artifacts-path: "./packages"
 #      artifacts-name: ""
       final-commands: |
-        ls -l ./packages/*
+        ls -l ./dist/*
 
   agents:
     name: Nx Cloud - Agents

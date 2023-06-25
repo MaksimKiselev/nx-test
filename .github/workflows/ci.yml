@@ -26,7 +26,7 @@ jobs:
 #      artifacts-path: "./packages"
 #      artifacts-name: ""
       final-commands: |
-        ls -l ./dist/*
+        ls -l ./dist/my-nest-app
 
   agents:
     name: Nx Cloud - Agents

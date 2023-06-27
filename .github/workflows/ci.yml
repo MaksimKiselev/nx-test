@@ -13,6 +13,13 @@ jobs:
     name: Testing nx
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ inputs.node-version }}
+
       - run: npm ci
       - run: npx nx build my-nest-app
 #  main:

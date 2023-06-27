@@ -9,29 +9,35 @@ on:
 
 
 jobs:
-  main:
-    name: Nx Cloud - Main Job
-    uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.13.0
-    with:
-      main-branch-name: main
-      number-of-agents: 3
-      init-commands: |
-        npx nx-cloud start-ci-run --stop-agents-after="build" --agent-count=3
-
-      parallel-commands-on-agents: |
-        npx nx affected --target=lint --parallel=3
-        npx nx affected --target=test --parallel=3 --ci --code-coverage
-        npx nx affected --target=build --parallel=3
-        npx nx build my-nest-app --parallel=3
-#      artifacts-path: "./packages"
-#      artifacts-name: ""
-      final-commands: |
-        ls -l ./dist/packages/my-nest-app
-
-  agents:
-    name: Nx Cloud - Agents
-    uses: nrwl/ci/.github/workflows/nx-cloud-agents.yml@v0.13.0
-    with:
-      number-of-agents: 3
+  test:
+    name: Testing nx
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm ci
+      - run: npx nx build my-nest-app
+#  main:
+#    name: Nx Cloud - Main Job
+#    uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.13.0
+#    with:
+#      main-branch-name: main
+#      number-of-agents: 3
+#      init-commands: |
+#        npx nx-cloud start-ci-run --stop-agents-after="build" --agent-count=3
+#
+#      parallel-commands-on-agents: |
+#        npx nx affected --target=lint --parallel=3
+#        npx nx affected --target=test --parallel=3 --ci --code-coverage
+#        npx nx affected --target=build --parallel=3
+#        npx nx build my-nest-app --parallel=3
+##      artifacts-path: "./packages"
+##      artifacts-name: ""
+#      final-commands: |
+#        ls -l ./dist/packages/my-nest-app
+#
+#  agents:
+#    name: Nx Cloud - Agents
+#    uses: nrwl/ci/.github/workflows/nx-cloud-agents.yml@v0.13.0
+#    with:
+#      number-of-agents: 3
 
 

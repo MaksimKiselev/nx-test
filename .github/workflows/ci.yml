@@ -18,7 +18,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: ${{ inputs.node-version }}
+          node-version: 18
 
       - run: npm ci
       - run: npx nx build my-nest-app
